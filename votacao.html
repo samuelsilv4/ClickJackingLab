@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Votação</title>
+        <style>
+            button{
+                display: block;
+                margin-bottom: 20px;
+                height: 200px;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1 id="telesPlacar"></h1>
+        <h1 id="venturaPlacar"></h1>
+        <button onclick="teles()">Teles</button>
+        <button onclick="ventura()">Ventura</button>
+
+        <script>
+
+            if(localStorage.length == 0){
+                localStorage.setItem('venturaPontos', 0)
+                localStorage.setItem('telesPontos', 0)
+            }
+
+            telesPontos = parseInt(localStorage.getItem('telesPontos'))
+            venturaPontos = parseInt(localStorage.getItem('venturaPontos'))
+            telesPlacar.innerHTML = "Teles Pontos: " + telesPontos 
+            venturaPlacar.innerHTML = "Ventura Pontos: " + venturaPontos
+
+            function teles(){
+                telesPontos = telesPontos + 1
+                telesPlacar.innerHTML = 'Teles Pontos: ' + telesPontos
+                localStorage.setItem('telesPontos', telesPontos)
+            }
+
+            function ventura(){
+                venturaPontos = venturaPontos + 1
+                venturaPlacar.innerHTML = 'Ventura Pontos: ' + venturaPontos
+                localStorage.setItem('venturaPontos', venturaPontos)
+            }
+
+        </script>
+    </body>
+</html>
